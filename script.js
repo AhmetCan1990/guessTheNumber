@@ -6,11 +6,16 @@ let biggerGuess = 100,
   smallGuess = 0,
   counter = 0;
 btn.addEventListener("click", guessGame);
-btn.addEventListener("click", guessGame);
+
+inpt.addEventListener("keypress", (event) => {
+  if (event.key === "Enter") {
+    guessGame();
+  }
+});
 function guessGame() {
   let guess = inpt.value;
   counter++;
-  if (guess < 0 || guess > 100) {
+  if (guess < 0 || guess > 100 || guess === "") {
     screen.innerText = `The number you have enetered must be a number between 0-100`;
   } else {
     if (number == guess) {
@@ -24,5 +29,6 @@ function guessGame() {
       biggerGuess = guess;
       screen.innerText = `Enter a number between ${smallGuess} - ${guess}`;
     }
+    inpt.value = "";
   }
 }
