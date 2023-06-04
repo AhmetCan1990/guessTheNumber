@@ -6,10 +6,9 @@ let biggerGuess = 100,
   smallGuess = 0,
   counter = 0;
 btn.addEventListener("click", guessGame);
-
 inpt.addEventListener("keypress", (event) => {
   if (event.key === "Enter") {
-    guessGame();
+    btn.click();
   }
 });
 function guessGame() {
